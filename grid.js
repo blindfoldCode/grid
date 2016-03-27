@@ -1,5 +1,6 @@
 function run(cb) {
-  var tableBody = document.querySelector("table");
+  var body = document.querySelector("body"),
+    tableBody = document.createElement("table");
 
   for (var i = 0; i < 10; i++) {
     var row = document.createElement("tr");
@@ -11,6 +12,7 @@ function run(cb) {
       row.appendChild(cell);
     }
     tableBody.appendChild(row);
+    body.appendChild(tableBody);
   }
 }
 
@@ -18,6 +20,11 @@ run(function(td, i) {
   return (td <= i) ? "bg-blue" : "bg-orange";
 });
 
-run(function(td, i) {
-  return/* (td <= i) ? "bg-blue" : "bg-orange";*/
+run(function(td, row) {
+  if (row % 2 == 0) {
+    return (td % 2 == 0) ? "bg-orange" : "bg-blue";
+  } else {
+    return  (td % 2 == 0) ? "bg-blue" : "bg-orange";
+  }
+
 });
