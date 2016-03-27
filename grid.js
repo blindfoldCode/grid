@@ -6,7 +6,7 @@ function run(cb) {
     row.id = "row" + i;
     for (var td = 0; td < 10; td++) {
       var cell = document.createElement("td");
-      cell.className = cb(td, i);
+      cell.className = (cb(td, i) !== undefined) ? cb(td, i) : "";
       cell.textContent = i + " - " + td;
       row.appendChild(cell);
     }
@@ -16,4 +16,8 @@ function run(cb) {
 
 run(function(td, i) {
   return (td <= i) ? "bg-blue" : "bg-orange";
-})
+});
+
+run(function(td, i) {
+  return/* (td <= i) ? "bg-blue" : "bg-orange";*/
+});
