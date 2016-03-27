@@ -1,2 +1,2 @@
 # grid
-A simple grid challenge made in html
+A simple grid challenge made in html and js.
